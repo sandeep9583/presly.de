@@ -129,7 +129,7 @@ Real estate is where Presly is. Not where it stops.
 
 ## Contact
 
-- **Email** — contact@presly.de
+- **Email** — sandeep@presly.de
 - **Website** — https://www.presly.de
 - **Demo** — see Presly Estate running on your own projects
 
