@@ -1,0 +1,1490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Presly — Real-Estate ERP for Plots, Bookings &amp; Commission</title>
+<meta name="description" content="ERP software for real-estate developers, builders and brokerages. Live plot inventory, sales CRM, bookings and an automated commission engine in one system.">
+<link rel="canonical" href="https://www.presly.de/">
+<meta name="theme-color" content="#0d2338">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Presly">
+<meta property="og:title" content="Presly — Real-Estate ERP for Plots, Bookings &amp; Commission">
+<meta property="og:description" content="Live plot inventory, sales CRM, booking workflows and an automated commission engine for real-estate companies.">
+<meta property="og:url" content="https://www.presly.de/">
+<meta property="og:image" content="https://www.presly.de/assets/img/og-cover.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/img/favicon.svg">
+<link rel="stylesheet" href="assets/fonts/fonts.css">
+<link rel="stylesheet" href="assets/vendor/bootstrap/bootstrap.min.css">
+<link rel="stylesheet" href="assets/css/presly.css">
+</head>
+<body data-page="index">
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true" focusable="false">
+  <defs>
+    <!-- Presly mark: a surveyed plot corner, drawn as a monogram P in negative space -->
+    <symbol id="i-mark" viewBox="0 0 24 24">
+      <path d="M5 20V4.6c0-.33.27-.6.6-.6h7.1c2.9 0 5.05 2.02 5.05 4.72 0 2.7-2.15 4.7-5.05 4.7H10" fill="none" stroke="currentColor" stroke-width="2.05" stroke-linecap="square" stroke-linejoin="miter"/>
+      <path d="M15.4 20 19.6 14.6" fill="none" stroke="currentColor" stroke-width="2.05" stroke-linecap="square"/>
+    </symbol>
+
+    <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M5 12h13M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-arrow-up-right" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></symbol>
+    <symbol id="i-arrow-up" viewBox="0 0 24 24"><path d="M12 19V5M6 11l6-6 6 6"/></symbol>
+    <symbol id="i-arrow-down" viewBox="0 0 24 24"><path d="M12 5v14M6 13l6 6 6-6"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m4 12.5 5 5L20 6.5"/></symbol>
+    <symbol id="i-check-circle" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m8 12.4 2.7 2.7L16.2 9.6"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></symbol>
+    <symbol id="i-minus" viewBox="0 0 24 24"><path d="M5 12h14"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></symbol>
+    <symbol id="i-chevron-down" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+    <symbol id="i-chevron-right" viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></symbol>
+
+    <symbol id="i-building" viewBox="0 0 24 24"><path d="M4 21V6.5L13 3v18M13 10h6.5a.5.5 0 0 1 .5.5V21M4 21h17M8 9h1.5M8 13h1.5M8 17h1.5M16 14h1M16 18h1"/></symbol>
+    <symbol id="i-map" viewBox="0 0 24 24"><path d="m3 6.5 6-2.5 6 2.5 6-2.5v13l-6 2.5-6-2.5-6 2.5z"/><path d="M9 4v13M15 6.5v13"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s6.5-5.5 6.5-10.5a6.5 6.5 0 1 0-13 0C5.5 15.5 12 21 12 21Z"/><circle cx="12" cy="10.5" r="2.4"/></symbol>
+    <symbol id="i-layers" viewBox="0 0 24 24"><path d="m12 3 8.5 4.5L12 12 3.5 7.5 12 3Z"/><path d="m4 12 8 4.3 8-4.3M4 16.5 12 20.8l8-4.3"/></symbol>
+    <symbol id="i-cube" viewBox="0 0 24 24"><path d="M12 2.8 20.5 7v10L12 21.2 3.5 17V7L12 2.8Z"/><path d="M3.7 7.2 12 11.5l8.3-4.3M12 11.5V21"/></symbol>
+    <symbol id="i-grid" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="7" height="7" rx="1.2"/><rect x="13.5" y="3.5" width="7" height="7" rx="1.2"/><rect x="3.5" y="13.5" width="7" height="7" rx="1.2"/><rect x="13.5" y="13.5" width="7" height="7" rx="1.2"/></symbol>
+    <symbol id="i-chart" viewBox="0 0 24 24"><path d="M4 20V4M4 20h16"/><path d="M8 17v-5M12.5 17V8M17 17v-7"/></symbol>
+    <symbol id="i-trend" viewBox="0 0 24 24"><path d="M4 16.5 9.5 11l3.5 3.5L20 7.5"/><path d="M15 7.5h5v5"/></symbol>
+    <symbol id="i-pie" viewBox="0 0 24 24"><path d="M12 3v9h9"/><path d="M20.5 12A8.5 8.5 0 1 1 12 3.5"/></symbol>
+    <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.4"/><path d="M2.8 20a6.2 6.2 0 0 1 12.4 0"/><path d="M16 5.2a3.4 3.4 0 0 1 0 6.6M17.6 20a6.4 6.4 0 0 0-1.6-4.2"/></symbol>
+    <symbol id="i-user-plus" viewBox="0 0 24 24"><circle cx="9.5" cy="8" r="3.4"/><path d="M3.4 20a6.2 6.2 0 0 1 12.2 0M18.5 8v6M15.5 11h6"/></symbol>
+    <symbol id="i-handshake" viewBox="0 0 24 24"><path d="m11 6 2.2-2.1a2 2 0 0 1 2.8 0l4.4 4.3a2 2 0 0 1 0 2.8L15 16.4a2 2 0 0 1-2.8 0L8 12.2"/><path d="M11 6 7.6 9.4a1.6 1.6 0 0 0 0 2.3l3 3M3 6.5 6.6 3"/></symbol>
+    <symbol id="i-calc" viewBox="0 0 24 24"><rect x="4.5" y="2.8" width="15" height="18.4" rx="2.2"/><path d="M8 7h8M8 11.5h1.5M11 11.5h1.5M14 11.5h1.5M8 15h1.5M11 15h1.5M14 15h1.5M8 18h4.5"/></symbol>
+    <symbol id="i-receipt" viewBox="0 0 24 24"><path d="M5 3h14v18l-2.3-1.6L14.4 21l-2.4-1.6L9.6 21l-2.3-1.6L5 21z"/><path d="M9 8h6M9 12h6"/></symbol>
+    <symbol id="i-wallet" viewBox="0 0 24 24"><path d="M3.5 7.5A2.5 2.5 0 0 1 6 5h11.5A2.5 2.5 0 0 1 20 7.5v9A2.5 2.5 0 0 1 17.5 19H6a2.5 2.5 0 0 1-2.5-2.5z"/><path d="M15 12h5"/></symbol>
+    <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15.5" rx="2.2"/><path d="M3.5 9.5h17M8 3.2v3.6M16 3.2v3.6"/><path d="M7.5 13.5h2M11 13.5h2M14.5 13.5h2M7.5 17h2M11 17h2"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5.3l3.3 2"/></symbol>
+    <symbol id="i-bell" viewBox="0 0 24 24"><path d="M6 9a6 6 0 1 1 12 0c0 5 1.6 6.5 2.4 7.2.3.3.1.8-.3.8H3.9c-.4 0-.6-.5-.3-.8C4.4 15.5 6 14 6 9Z"/><path d="M10 20.2a2.2 2.2 0 0 0 4 0"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/></symbol>
+    <symbol id="i-filter" viewBox="0 0 24 24"><path d="M4 5.5h16l-6.2 7.3V19l-3.6 2v-8.2z"/></symbol>
+    <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 3.5v11M7.5 10 12 14.5 16.5 10M4.5 19.5h15"/></symbol>
+    <symbol id="i-upload" viewBox="0 0 24 24"><path d="M12 15V4M7.5 8.5 12 4l4.5 4.5M4.5 19.5h15"/></symbol>
+    <symbol id="i-file" viewBox="0 0 24 24"><path d="M13.5 2.8H7a2 2 0 0 0-2 2v14.4a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8.3z"/><path d="M13.5 2.8v5.5H19"/></symbol>
+    <symbol id="i-folder" viewBox="0 0 24 24"><path d="M3.5 7.5A2 2 0 0 1 5.5 5.5h3.6l2 2.5h7.4a2 2 0 0 1 2 2v7.5a2 2 0 0 1-2 2h-13a2 2 0 0 1-2-2z"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 21.5c4.5-2 7-5.3 7-9.8V5.8L12 2.8 5 5.8v5.9c0 4.5 2.5 7.8 7 9.8Z"/><path d="m9 12 2.2 2.2L15.2 10"/></symbol>
+    <symbol id="i-lock" viewBox="0 0 24 24"><rect x="4.5" y="10.5" width="15" height="10.2" rx="2.2"/><path d="M8 10.5V7.8a4 4 0 0 1 8 0v2.7"/></symbol>
+    <symbol id="i-cloud" viewBox="0 0 24 24"><path d="M7.2 19h10a4.3 4.3 0 0 0 .5-8.6 6 6 0 0 0-11.4-1.6A4.2 4.2 0 0 0 7.2 19Z"/></symbol>
+    <symbol id="i-server" viewBox="0 0 24 24"><rect x="3.5" y="4" width="17" height="6.4" rx="1.8"/><rect x="3.5" y="13.6" width="17" height="6.4" rx="1.8"/><path d="M7 7.2h.01M7 16.8h.01"/></symbol>
+    <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3.2 12h17.6M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M6.2 3.6h3.1l1.6 4-2 1.3a11.5 11.5 0 0 0 5.2 5.2l1.3-2 4 1.6v3.1a2 2 0 0 1-2.2 2A16.4 16.4 0 0 1 4.2 5.8a2 2 0 0 1 2-2.2Z"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2.2"/><path d="m3.8 6.6 7.2 5.4a1.7 1.7 0 0 0 2 0l7.2-5.4"/></symbol>
+    <symbol id="i-send" viewBox="0 0 24 24"><path d="M21 3 10.5 13.5M21 3l-6.8 18-3.7-7.5L3 9.8 21 3Z"/></symbol>
+    <symbol id="i-message" viewBox="0 0 24 24"><path d="M20.5 12a8 8 0 0 1-8 8H4.5l1.7-3.3A8 8 0 1 1 20.5 12Z"/></symbol>
+    <symbol id="i-help" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9.6 9.4a2.5 2.5 0 0 1 4.9.6c0 1.7-2.4 2-2.4 3.6"/><path d="M12 17.2h.01"/></symbol>
+    <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="4.6"/><circle cx="12" cy="12" r="1"/></symbol>
+    <symbol id="i-compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m15.6 8.4-2 5.2-5.2 2 2-5.2z"/></symbol>
+    <symbol id="i-sliders" viewBox="0 0 24 24"><path d="M4 7h9M17 7h3M4 12h3M11 12h9M4 17h9M17 17h3"/><circle cx="15" cy="7" r="2"/><circle cx="9" cy="12" r="2"/><circle cx="15" cy="17" r="2"/></symbol>
+    <symbol id="i-key" viewBox="0 0 24 24"><circle cx="8" cy="15.5" r="4.2"/><path d="m11 12.5 7.5-7.5M16 7.5 18.5 10M14 9.5l2 2"/></symbol>
+    <symbol id="i-tag" viewBox="0 0 24 24"><path d="M11.4 3.5H20v8.6l-8.9 8.9a1.6 1.6 0 0 1-2.3 0l-6.3-6.3a1.6 1.6 0 0 1 0-2.3z"/><path d="M16.2 7.8h.01"/></symbol>
+    <symbol id="i-route" viewBox="0 0 24 24"><circle cx="6" cy="6" r="2.6"/><circle cx="18" cy="18" r="2.6"/><path d="M8.6 6H14a3.4 3.4 0 0 1 0 6.8H9.6a3.2 3.2 0 0 0 0 6.4"/></symbol>
+    <symbol id="i-refresh" viewBox="0 0 24 24"><path d="M20 12a8 8 0 1 1-2.6-5.9"/><path d="M20 4v4.5h-4.5"/></symbol>
+    <symbol id="i-plug" viewBox="0 0 24 24"><path d="M9 3v5M15 3v5M6.5 8h11v3.5a5.5 5.5 0 0 1-11 0z"/><path d="M12 17v4"/></symbol>
+    <symbol id="i-code" viewBox="0 0 24 24"><path d="m8.5 8-4 4 4 4M15.5 8l4 4-4 4"/></symbol>
+    <symbol id="i-book" viewBox="0 0 24 24"><path d="M4 4.5A1.5 1.5 0 0 1 5.5 3H11v16.5H5.5A1.5 1.5 0 0 0 4 21z"/><path d="M20 4.5A1.5 1.5 0 0 0 18.5 3H13v16.5h5.5A1.5 1.5 0 0 1 20 21z"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M10.2 8.6 16 12l-5.8 3.4z"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-star" viewBox="0 0 24 24"><path d="m12 3.5 2.7 5.6 6.1.9-4.4 4.3 1 6.1-5.4-2.9-5.4 2.9 1-6.1L3.2 10l6.1-.9z"/></symbol>
+    <symbol id="i-quote" viewBox="0 0 24 24"><path d="M9.4 6.5C6.6 7.7 5 10 5 12.6c0 2.1 1.2 3.6 3 3.6 1.6 0 2.7-1.1 2.7-2.6 0-1.4-1-2.4-2.4-2.4h-.5c.2-1.2 1.1-2.3 2.4-3zM19.2 6.5c-2.8 1.2-4.4 3.5-4.4 6.1 0 2.1 1.2 3.6 3 3.6 1.6 0 2.7-1.1 2.7-2.6 0-1.4-1-2.4-2.4-2.4h-.5c.2-1.2 1.1-2.3 2.4-3z"/></symbol>
+    <symbol id="i-linkedin" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="2.4"/><path d="M8 10.5V16M8 7.6v.01M11.6 16v-3.2a2 2 0 0 1 4 0V16"/></symbol>
+    <symbol id="i-mail-open" viewBox="0 0 24 24"><path d="M3 6.5A2 2 0 0 1 5 5h14a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M3.5 6.8 11 12.2a1.7 1.7 0 0 0 2 0l7.5-5.4"/><path d="M8 18v2h8v-2"/></symbol>
+    <symbol id="i-eye" viewBox="0 0 24 24"><path d="M2.5 12S6 6.5 12 6.5 21.5 12 21.5 12 18 17.5 12 17.5 2.5 12 2.5 12Z"/><circle cx="12" cy="12" r="2.9"/></symbol>
+    <symbol id="i-logo-lock" viewBox="0 0 24 24"><path d="M4 21V4.5h7.5a4.4 4.4 0 0 1 0 8.8H8"/><path d="M14.5 21 19 15"/></symbol>
+  </defs>
+</svg>
+<!-- ===================== HEADER ===================== -->
+<a class="skip-link" href="#main" style="position:absolute;left:-9999px;top:0;z-index:2000;background:#fff;padding:.6rem 1rem;border-radius:0 0 6px 0;font-weight:600" onfocus="this.style.left='0'" onblur="this.style.left='-9999px'">Skip to content</a>
+<header class="site-header" id="siteHeader">
+  <div class="shell header-inner">
+    <a class="brand" href="index.html" aria-label="Presly — home">
+      <span class="brand-mark"><svg viewBox="0 0 24 24" aria-hidden="true" style="color:#fff"><use href="#i-mark"></use></svg></span>
+      <span class="brand-text">
+        <span class="brand-name">Presly</span>
+        <span class="brand-sub">Estate Software</span>
+      </span>
+    </a>
+
+    <nav class="nav-main" aria-label="Primary">
+      <a class="nav-link-p" data-nav="product" href="product.html">Product</a>
+      <a class="nav-link-p" data-nav="features" href="features.html">Features</a>
+      <a class="nav-link-p" data-nav="pricing" href="pricing.html">Pricing</a>
+      <a class="nav-link-p" data-nav="about" href="about.html">Company</a>
+      <a class="nav-link-p" data-nav="contact" href="contact.html">Contact</a>
+    </nav>
+
+    <div class="header-actions">
+      <a class="btn btn-line btn-sm" href="contact.html#demo">
+        <svg class="ico" aria-hidden="true"><use href="#i-play"></use></svg>
+        Book a demo
+      </a>
+      <a class="btn btn-ink btn-sm" href="contact.html#quote">Talk to sales</a>
+      <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="mobileNav" aria-label="Open menu">
+        <svg class="ico" aria-hidden="true"><use href="#i-menu"></use></svg>
+      </button>
+    </div>
+  </div>
+
+  <div class="mobile-nav" id="mobileNav">
+    <div class="shell">
+      <a class="m-link" href="product.html">Product</a>
+      <a class="m-link" href="features.html">Features</a>
+      <a class="m-link" href="pricing.html">Pricing</a>
+      <a class="m-link" href="about.html">Company</a>
+      <a class="m-link" href="contact.html">Contact</a>
+      <div class="m-cta">
+        <a class="btn btn-line" href="contact.html#demo">Book a demo</a>
+        <a class="btn btn-ink" href="contact.html#quote">Talk to sales</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ================= HERO ================= -->
+  <section class="hero">
+    <div class="shell">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-6">
+          <span class="eyebrow">Real-estate ERP software</span>
+          <h1 class="t-hero">
+            Every plot, booking and commission — in one system.
+          </h1>
+          <p class="t-lead">
+            Presly Estate is the operational backbone for developers, builders and
+            brokerages. Your sales team sells from a live plot map instead of a
+            spreadsheet, and finance closes the month without chasing anyone.
+          </p>
+          <div class="hero-cta">
+            <a class="btn btn-ink btn-lg" href="contact.html#demo">
+              Book a demo
+              <svg class="ico" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
+            </a>
+            <a class="btn btn-line btn-lg" href="product.html">See the product</a>
+          </div>
+
+          <div class="hero-meta">
+            <div class="hero-meta-item">
+              <span class="hero-meta-num">20</span>
+              <span class="hero-meta-lbl">modules in the core platform</span>
+            </div>
+            <div class="hero-meta-item">
+              <span class="hero-meta-num">1</span>
+              <span class="hero-meta-lbl">source of truth for inventory</span>
+            </div>
+            <div class="hero-meta-item">
+              <span class="hero-meta-num">0</span>
+              <span class="hero-meta-lbl">double-booked plots, by design</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          <!-- Product visual: live markup now, real screenshot later -->
+          <!-- ============ SHOT: Operations dashboard ============
+     This is live HTML, not an image. To swap in a real screenshot later,
+     replace the <div class="shot-body">…</div> contents with:
+       <div class="shot-body shot-slot"><img src="assets/img/screenshots/dashboard.png" alt="Presly Estate dashboard"></div>
+     The frame, ratio and styling stay identical. -->
+<div class="shot">
+  <div class="shot-bar">
+    <span class="shot-dots"><i></i><i></i><i></i></span>
+    <span class="shot-url">app.presly.de/dashboard</span>
+    <span class="pill pill-green" style="font-size:.66rem;padding:.14rem .5rem"><span class="dot"></span>Live</span>
+  </div>
+  <div class="shot-body">
+    <div class="app">
+      <aside class="app-side">
+        <div class="app-brand">
+          <span class="brand-mark"><svg viewBox="0 0 24 24" aria-hidden="true" style="color:#fff"><use href="#i-mark"></use></svg></span>
+          <span>Presly Estate</span>
+        </div>
+        <span class="app-nav-group">Overview</span>
+        <span class="app-nav is-active"><svg class="ico"><use href="#i-grid"></use></svg>Dashboard</span>
+        <span class="app-nav"><svg class="ico"><use href="#i-chart"></use></svg>Reports</span>
+        <span class="app-nav-group">Sell</span>
+        <span class="app-nav"><svg class="ico"><use href="#i-user-plus"></use></svg>Leads</span>
+        <span class="app-nav"><svg class="ico"><use href="#i-users"></use></svg>Customers</span>
+        <span class="app-nav"><svg class="ico"><use href="#i-route"></use></svg>Site visits</span>
+        <span class="app-nav-group">Inventory</span>
+        <span class="app-nav"><svg class="ico"><use href="#i-layers"></use></svg>Projects</span>
+        <span class="app-nav"><svg class="ico"><use href="#i-map"></use></svg>Plot matrix</span>
+        <span class="app-nav"><svg class="ico"><use href="#i-cube"></use></svg>3D view</span>
+        <span class="app-nav-group">Money</span>
+        <span class="app-nav"><svg class="ico"><use href="#i-receipt"></use></svg>Bookings</span>
+        <span class="app-nav"><svg class="ico"><use href="#i-calc"></use></svg>Commission</span>
+      </aside>
+
+      <main class="app-main">
+        <div class="app-top">
+          <div>
+            <p class="app-crumb">All projects · updated 2 min ago</p>
+            <h3 class="app-title">Sales &amp; inventory overview</h3>
+          </div>
+          <div class="app-user">
+            <span class="app-avatar">AK</span>
+            <span>Anita K. · Sales head</span>
+          </div>
+        </div>
+
+        <div class="kpis">
+          <div class="kpi">
+            <div class="kpi-lbl">Plots available</div>
+            <div class="kpi-val">1,284</div>
+            <div class="kpi-delta up"><svg class="ico"><use href="#i-arrow-up"></use></svg>62 released this week</div>
+          </div>
+          <div class="kpi">
+            <div class="kpi-lbl">Booked / sold</div>
+            <div class="kpi-val">476</div>
+            <div class="kpi-delta up"><svg class="ico"><use href="#i-arrow-up"></use></svg>8.4% vs last month</div>
+          </div>
+          <div class="kpi">
+            <div class="kpi-lbl">Value booked</div>
+            <div class="kpi-val">€18.4M</div>
+            <div class="kpi-delta up"><svg class="ico"><use href="#i-arrow-up"></use></svg>€2.1M MTD</div>
+          </div>
+          <div class="kpi">
+            <div class="kpi-lbl">Commission payable</div>
+            <div class="kpi-val">€412K</div>
+            <div class="kpi-delta down"><svg class="ico"><use href="#i-arrow-down"></use></svg>3 payouts pending</div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-head">
+            <h4 class="panel-title">Booking value by venture</h4>
+            <span class="t-tiny">Last 8 months</span>
+          </div>
+          <div class="panel-body tight">
+            <div class="chart">
+              <div class="chart-col"><div class="chart-bar" style="height:44%"></div><div class="chart-bar alt" style="height:18%"></div></div>
+              <div class="chart-col"><div class="chart-bar" style="height:56%"></div><div class="chart-bar alt" style="height:22%"></div></div>
+              <div class="chart-col"><div class="chart-bar" style="height:38%"></div><div class="chart-bar alt" style="height:31%"></div></div>
+              <div class="chart-col"><div class="chart-bar" style="height:68%"></div><div class="chart-bar alt" style="height:26%"></div></div>
+              <div class="chart-col"><div class="chart-bar" style="height:61%"></div><div class="chart-bar alt" style="height:40%"></div></div>
+              <div class="chart-col"><div class="chart-bar" style="height:82%"></div><div class="chart-bar alt" style="height:34%"></div></div>
+              <div class="chart-col"><div class="chart-bar" style="height:74%"></div><div class="chart-bar alt" style="height:47%"></div></div>
+              <div class="chart-col"><div class="chart-bar" style="height:96%"></div><div class="chart-bar alt" style="height:52%"></div></div>
+            </div>
+            <div class="chart-x">
+              <span>Jan</span><span>Feb</span><span>Mar</span><span>Apr</span><span>May</span><span>Jun</span><span>Jul</span><span>Aug</span>
+            </div>
+            <div class="legend" style="margin-top:.7rem">
+              <span class="legend-item"><span class="legend-sw" style="background:var(--ink-600)"></span>Green Meadows</span>
+              <span class="legend-item"><span class="legend-sw" style="background:var(--clay-500)"></span>Riverbend</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel" style="margin-bottom:0">
+          <div class="panel-head">
+            <h4 class="panel-title">Latest bookings</h4>
+            <span class="pill" style="font-size:.66rem;padding:.14rem .5rem">View all</span>
+          </div>
+          <div class="panel-body tight">
+            <table class="dtable">
+              <thead>
+                <tr><th>Ref</th><th>Customer</th><th>Plot</th><th>Venture</th><th class="num">Value</th><th>Status</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="strong">BK-2025-0417</td><td>M. Sandberg</td><td>A-114</td><td>Green Meadows</td>
+                  <td class="num strong">€182,400</td><td><span class="pill pill-green" style="font-size:.64rem">Booked</span></td>
+                </tr>
+                <tr>
+                  <td class="strong">BK-2025-0416</td><td>R. Delacroix</td><td>C-032</td><td>Riverbend</td>
+                  <td class="num strong">€96,750</td><td><span class="pill pill-amber" style="font-size:.64rem">On hold</span></td>
+                </tr>
+                <tr>
+                  <td class="strong">BK-2025-0415</td><td>H. Okafor</td><td>B-208</td><td>Green Meadows</td>
+                  <td class="num strong">€214,000</td><td><span class="pill pill-green" style="font-size:.64rem">Registered</span></td>
+                </tr>
+                <tr>
+                  <td class="strong">BK-2025-0414</td><td>L. Petrov</td><td>A-076</td><td>Riverbend</td>
+                  <td class="num strong">€147,900</td><td><span class="pill pill-blue" style="font-size:.64rem">Agreement</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= TRUST ================= -->
+  <section class="trust-strip">
+    <div class="shell">
+      <p class="trust-label">Built for the way real-estate businesses actually operate</p>
+      <div class="trust-row">
+        <span class="trust-item"><svg class="ico" aria-hidden="true"><use href="#i-layers"></use></svg>Township &amp; plotted development</span>
+        <span class="trust-item"><svg class="ico" aria-hidden="true"><use href="#i-building"></use></svg>Residential projects</span>
+        <span class="trust-item"><svg class="ico" aria-hidden="true"><use href="#i-handshake"></use></svg>Channel partners &amp; brokerages</span>
+        <span class="trust-item"><svg class="ico" aria-hidden="true"><use href="#i-users"></use></svg>In-house sales teams</span>
+        <span class="trust-item"><svg class="ico" aria-hidden="true"><use href="#i-receipt"></use></svg>Finance &amp; collections</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= WHAT WE DO ================= -->
+  <section class="section">
+    <div class="shell">
+      <div class="row g-5 align-items-start">
+        <div class="col-lg-5">
+          <div class="aside-sticky">
+            <span class="eyebrow">What we do</span>
+            <h2 class="t-h2">We build software for companies that sell land and buildings.</h2>
+            <p class="t-lead" style="margin-top:1.1rem">
+              Most real-estate businesses run on four or five disconnected tools: a
+              spreadsheet for inventory, a CRM nobody updates, WhatsApp for approvals
+              and Tally for money. Presly replaces that with one system that knows
+              which plots exist, who is selling them and what is owed to whom.
+            </p>
+            <a class="link-arrow" href="product.html" style="margin-top:1.5rem">
+              How Presly Estate works
+              <svg class="ico" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="col-lg-7">
+          <div class="grid-2">
+            <div class="card-p">
+              <span class="card-ico is-clay"><svg class="ico" aria-hidden="true"><use href="#i-map"></use></svg></span>
+              <h3 class="t-h4">Inventory you can trust</h3>
+              <p>
+                Plots are records, not rows in a file. Availability, holds, bookings and
+                registration are tracked against the plot itself — so two salespeople
+                can never sell the same one.
+              </p>
+            </div>
+            <div class="card-p">
+              <span class="card-ico is-green"><svg class="ico" aria-hidden="true"><use href="#i-trend"></use></svg></span>
+              <h3 class="t-h4">Sales that move faster</h3>
+              <p>
+                Leads, site visits, negotiations and bookings sit in one pipeline. Every
+                call, visit and price revision is on the record, next to the plot it
+                concerns.
+              </p>
+            </div>
+            <div class="card-p">
+              <span class="card-ico is-blue"><svg class="ico" aria-hidden="true"><use href="#i-calc"></use></svg></span>
+              <h3 class="t-h4">Commission without arguments</h3>
+              <p>
+                Define your slabs and splits once. The engine calculates what each agent
+                and channel partner earned, per booking, with the working shown.
+              </p>
+            </div>
+            <div class="card-p">
+              <span class="card-ico is-amber"><svg class="ico" aria-hidden="true"><use href="#i-cube"></use></svg></span>
+              <h3 class="t-h4">Plots customers understand</h3>
+              <p>
+                Show a 3D view of the layout, the road frontage, the corner premium and
+                the price — the same view your team sees while standing on site.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CAPABILITIES ================= -->
+  <section class="section bg-paper2 section-rule">
+    <div class="shell">
+      <div class="section-head center">
+        <span class="eyebrow">The platform</span>
+        <h2 class="t-h2">Seven things Presly Estate does properly</h2>
+        <p class="t-lead">
+          Not a feature list for its own sake — these are the processes that decide
+          whether a real-estate business has a good month or a chaotic one.
+        </p>
+      </div>
+
+      <div class="grid-3">
+        <div class="card-p reveal">
+          <span class="card-ico"><svg class="ico" aria-hidden="true"><use href="#i-map"></use></svg></span>
+          <h3 class="t-h4">Plot &amp; inventory management</h3>
+          <p>
+            Projects → ventures → phases → blocks → plots. Dimensions, facing, corner
+            and road-facing premiums, rate per square metre and price history on every
+            single plot.
+          </p>
+          <ul class="ticks">
+            <li>Live availability matrix by block</li>
+            <li>Holds with automatic expiry</li>
+            <li>Bulk price revision by block or phase</li>
+          </ul>
+        </div>
+
+        <div class="card-p reveal">
+          <span class="card-ico"><svg class="ico" aria-hidden="true"><use href="#i-user-plus"></use></svg></span>
+          <h3 class="t-h4">Lead &amp; customer CRM</h3>
+          <p>
+            Capture leads from walk-ins, ads, exhibitions and channel partners. Assign
+            them round-robin, track every follow-up, and convert a lead into a customer
+            without duplicating a single record.
+          </p>
+          <ul class="ticks">
+            <li>Configurable pipeline stages</li>
+            <li>Duplicate detection on phone number</li>
+            <li>Full activity timeline per contact</li>
+          </ul>
+        </div>
+
+        <div class="card-p reveal">
+          <span class="card-ico"><svg class="ico" aria-hidden="true"><use href="#i-receipt"></use></svg></span>
+          <h3 class="t-h4">Booking &amp; agreement workflow</h3>
+          <p>
+            Holds, bookings, co-applicants, payment schedules and agreement status.
+            Approvals follow the hierarchy you already use, not a workflow we invented.
+          </p>
+          <ul class="ticks">
+            <li>Locked booking transaction — no double sales</li>
+            <li>Co-applicant and joint-ownership support</li>
+            <li>Cancellation and refund handling</li>
+          </ul>
+        </div>
+
+        <div class="card-p reveal">
+          <span class="card-ico is-clay"><svg class="ico" aria-hidden="true"><use href="#i-calc"></use></svg></span>
+          <h3 class="t-h4">Commission engine</h3>
+          <p>
+            Slabs, percentages, flat fees, launch incentives and channel-partner splits.
+            Run a payout cycle and get a per-agent statement you can hand to a
+            finance team.
+          </p>
+          <ul class="ticks">
+            <li>Rule-based, per booking</li>
+            <li>Agent and agency split in one run</li>
+            <li>Exportable payout schedule</li>
+          </ul>
+        </div>
+
+        <div class="card-p reveal">
+          <span class="card-ico is-blue"><svg class="ico" aria-hidden="true"><use href="#i-cube"></use></svg></span>
+          <h3 class="t-h4">3D plot visualisation</h3>
+          <p>
+            Turn the plot matrix into a spatial layout your buyers can read at a glance:
+            roads, corners, orientation and the plot they are being offered, highlighted.
+          </p>
+          <ul class="ticks">
+            <li>Interactive layout by block</li>
+            <li>Colour-coded availability</li>
+            <li>Shareable view for site offices</li>
+          </ul>
+        </div>
+
+        <div class="card-p reveal">
+          <span class="card-ico is-green"><svg class="ico" aria-hidden="true"><use href="#i-chart"></use></svg></span>
+          <h3 class="t-h4">Reports management reads</h3>
+          <p>
+            Booking velocity by venture, conversion by lead source, ageing inventory,
+            collections due and agent productivity — the numbers a director asks for on
+            a Monday morning.
+          </p>
+          <ul class="ticks">
+            <li>Role-based dashboards</li>
+            <li>Scheduled email reports</li>
+            <li>Excel and CSV export everywhere</li>
+          </ul>
+        </div>
+
+        <div class="card-p reveal">
+          <span class="card-ico is-amber"><svg class="ico" aria-hidden="true"><use href="#i-users"></use></svg></span>
+          <h3 class="t-h4">Teams, roles &amp; hierarchy</h3>
+          <p>
+            Regional heads, project managers, sales managers and agents each see their
+            own book of business. Permissions follow the reporting line you already have.
+          </p>
+          <ul class="ticks">
+            <li>Team-scoped data access</li>
+            <li>Approval limits by seniority</li>
+            <li>Audit trail on every change</li>
+          </ul>
+        </div>
+
+        <div class="card-p reveal" style="background:var(--ink-900);border-color:var(--ink-900)">
+          <span class="card-ico" style="background:rgba(255,255,255,.1);color:#fff"><svg class="ico" aria-hidden="true"><use href="#i-plug"></use></svg></span>
+          <h3 class="t-h4" style="color:#fff">Integrations &amp; data</h3>
+          <p style="color:rgba(255,255,255,.66)">
+            Accounting, payments, messaging and your existing website forms. Presly sits
+            in the middle and keeps everyone's numbers the same.
+          </p>
+          <ul class="ticks ticks-invert">
+            <li>REST API for everything in the UI</li>
+            <li>Webhooks on booking and payment events</li>
+            <li>Import from your current spreadsheets</li>
+          </ul>
+        </div>
+
+        <div class="card-p reveal" style="background:var(--paper-3);border-style:dashed">
+          <span class="card-ico is-clay"><svg class="ico" aria-hidden="true"><use href="#i-route"></use></svg></span>
+          <h3 class="t-h4">Beyond real estate</h3>
+          <p>
+            Presly is a software company, not a single-product shop. The same platform
+            foundation — inventory, sales, commission, approvals — is what we will apply
+            to the next industries we enter.
+          </p>
+          <a class="link-arrow" href="about.html#roadmap" style="margin-top:.9rem">
+            Where we're going
+            <svg class="ico" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= INVENTORY DEEP DIVE ================= -->
+  <section class="section" id="inventory">
+    <div class="shell">
+      <div class="row g-5 align-items-center">
+        <div class="col-lg-5">
+          <span class="eyebrow">Inventory</span>
+          <h2 class="t-h2">The plot matrix is the whole business, on one screen.</h2>
+          <p class="t-body" style="margin-top:1.1rem">
+            Every block, every plot, every status — available, on hold, booked, sold,
+            blocked. Sales managers see what they can sell right now. Directors see what
+            has been sitting unsold for a year.
+          </p>
+          <ul class="ticks" style="margin-top:1.4rem">
+            <li><strong>Five statuses, one truth.</strong> A hold immediately removes the plot from what anyone else can offer.</li>
+            <li><strong>Holds expire themselves.</strong> No forgotten reservations quietly blocking your best inventory.</li>
+            <li><strong>Detail on demand.</strong> Dimensions, facing, rate per m², premiums and the full hold history.</li>
+            <li><strong>Export anything.</strong> The price list and availability sheet your marketing team keeps asking for.</li>
+          </ul>
+        </div>
+        <div class="col-lg-7">
+          <!-- ============ SHOT: Plot availability matrix ============
+     Swap for a real capture: replace the .panel-body contents with
+     <div class="shot-slot"><img src="assets/img/screenshots/plot-matrix.png" alt="Plot availability matrix"></div> -->
+<div class="shot">
+  <div class="shot-bar">
+    <span class="shot-dots"><i></i><i></i><i></i></span>
+    <span class="shot-url">app.presly.de/projects/green-meadows/plot-matrix</span>
+    <span class="pill" style="font-size:.66rem;padding:.14rem .5rem">Block A</span>
+  </div>
+  <div class="shot-body">
+    <div class="app">
+      <aside class="app-side">
+        <div class="app-brand">
+          <span class="brand-mark"><svg viewBox="0 0 24 24" aria-hidden="true" style="color:#fff"><use href="#i-mark"></use></svg></span>
+          <span>Presly Estate</span>
+        </div>
+        <span class="app-nav-group">Inventory</span>
+        <span class="app-nav"><svg class="ico"><use href="#i-layers"></use></svg>Green Meadows</span>
+        <span class="app-nav" style="padding-left:1.4rem">Phase I</span>
+        <span class="app-nav" style="padding-left:1.4rem">Phase II</span>
+        <span class="app-nav is-active"><svg class="ico"><use href="#i-map"></use></svg>Plot matrix</span>
+        <span class="app-nav"><svg class="ico"><use href="#i-cube"></use></svg>3D view</span>
+        <span class="app-nav"><svg class="ico"><use href="#i-tag"></use></svg>Price list</span>
+        <span class="app-nav-group">Actions</span>
+        <span class="app-nav"><svg class="ico"><use href="#i-clock"></use></svg>Active holds</span>
+        <span class="app-nav"><svg class="ico"><use href="#i-download"></use></svg>Export</span>
+      </aside>
+
+      <main class="app-main">
+        <div class="app-top">
+          <div>
+            <p class="app-crumb">Green Meadows · Phase I · Block A</p>
+            <h3 class="app-title">Plot availability — 40 of 240 plots</h3>
+          </div>
+          <div class="app-user"><svg class="ico" style="width:13px;height:13px"><use href="#i-filter"></use></svg>Facing: all</div>
+        </div>
+
+        <div class="kpis" style="grid-template-columns:repeat(4,1fr);margin-bottom:.9rem">
+          <div class="kpi"><div class="kpi-lbl">Available</div><div class="kpi-val" style="color:var(--green-600)">19</div></div>
+          <div class="kpi"><div class="kpi-lbl">On hold</div><div class="kpi-val" style="color:var(--amber-600)">6</div></div>
+          <div class="kpi"><div class="kpi-lbl">Booked</div><div class="kpi-val" style="color:var(--red-600)">9</div></div>
+          <div class="kpi"><div class="kpi-lbl">Sold / registered</div><div class="kpi-val">6</div></div>
+        </div>
+
+        <div class="panel" style="margin-bottom:.7rem">
+          <div class="panel-head">
+            <h4 class="panel-title">Block A · 101–140</h4>
+            <span class="t-tiny">Hover a plot for dimensions, facing and price</span>
+          </div>
+          <div class="panel-body">
+            <div class="plots">
+              <div class="plot av">101</div><div class="plot av">102</div><div class="plot bk">103</div><div class="plot av">104</div><div class="plot hd">105</div><div class="plot av">106</div><div class="plot sl">107</div><div class="plot av">108</div><div class="plot bl">109</div><div class="plot av">110</div>
+              <div class="plot av">111</div><div class="plot hd">112</div><div class="plot av">113</div><div class="plot bk">114</div><div class="plot av">115</div><div class="plot av">116</div><div class="plot sl">117</div><div class="plot hd">118</div><div class="plot av">119</div><div class="plot av">120</div>
+              <div class="plot bk">121</div><div class="plot av">122</div><div class="plot av">123</div><div class="plot sl">124</div><div class="plot av">125</div><div class="plot bl">126</div><div class="plot av">127</div><div class="plot bk">128</div><div class="plot av">129</div><div class="plot hd">130</div>
+              <div class="plot av">131</div><div class="plot sl">132</div><div class="plot av">133</div><div class="plot av">134</div><div class="plot bk">135</div><div class="plot av">136</div><div class="plot hd">137</div><div class="plot av">138</div><div class="plot sl">139</div><div class="plot av">140</div>
+            </div>
+            <div class="legend" style="margin-top:.9rem">
+              <span class="legend-item"><span class="legend-sw" style="background:var(--green-100);border-color:rgba(39,154,111,.28)"></span>Available</span>
+              <span class="legend-item"><span class="legend-sw" style="background:var(--amber-100);border-color:rgba(208,154,44,.34)"></span>On hold</span>
+              <span class="legend-item"><span class="legend-sw" style="background:var(--red-100);border-color:rgba(176,68,60,.24)"></span>Booked</span>
+              <span class="legend-item"><span class="legend-sw" style="background:var(--ink-800)"></span>Sold</span>
+              <span class="legend-item"><span class="legend-sw" style="background:var(--paper-3);border-color:var(--line)"></span>Blocked</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel" style="margin-bottom:0">
+          <div class="panel-head">
+            <h4 class="panel-title">Plot 105 · detail</h4>
+            <span class="pill pill-amber" style="font-size:.64rem"><span class="dot"></span>Hold expires in 21h</span>
+          </div>
+          <div class="panel-body tight">
+            <table class="dtable">
+              <tbody>
+                <tr><td style="width:34%">Dimensions</td><td class="strong">12.0 × 18.0 m (216 m²)</td></tr>
+                <tr><td>Facing</td><td class="strong">North-East</td></tr>
+                <tr><td>Rate</td><td class="strong">€845 / m² · €182,520 total</td></tr>
+                <tr><td>Corner plot</td><td class="strong">Yes — 8% corner premium applied</td></tr>
+                <tr><td>Held by</td><td class="strong">Anita K. · reason: customer site visit scheduled</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 3D ================= -->
+  <section class="section bg-ink" id="visualisation">
+    <div class="shell">
+      <div class="row g-5 align-items-center">
+        <div class="col-lg-7 order-lg-1 order-2">
+          <!-- ============ SHOT: 3D plot visualisation ============
+     The stage is a CSS isometric projection driven by live data classes.
+     Swap for a real WebGL capture later:
+       <div class="shot-slot"><img src="assets/img/screenshots/plot-3d.png" alt="3D plot view"></div> -->
+<div class="shot">
+  <div class="shot-bar">
+    <span class="shot-dots"><i></i><i></i><i></i></span>
+    <span class="shot-url">app.presly.de/projects/green-meadows/3d-view</span>
+    <span class="pill pill-clay" style="font-size:.66rem;padding:.14rem .5rem">WebGL</span>
+  </div>
+  <div class="shot-body">
+    <div class="stage3d">
+      <div class="stage3d-grid"></div>
+
+      <div style="position:absolute;top:1rem;left:1.1rem;right:1.1rem;display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;z-index:2">
+        <div class="hud-card">
+          <div class="hud-lbl">Viewing</div>
+          <div class="hud-val">Block A <small>· Phase I</small></div>
+        </div>
+        <div class="stage3d-tools">
+          <span class="stage3d-tool is-active"><svg class="ico"><use href="#i-cube"></use></svg></span>
+          <span class="stage3d-tool"><svg class="ico"><use href="#i-layers"></use></svg></span>
+          <span class="stage3d-tool"><svg class="ico"><use href="#i-compass"></use></svg></span>
+          <span class="stage3d-tool"><svg class="ico"><use href="#i-search"></use></svg></span>
+        </div>
+      </div>
+
+      <div class="iso">
+        <span class="iso-plot av"></span><span class="iso-plot av"></span><span class="iso-plot pick"></span><span class="iso-plot hd"></span><span class="iso-plot av"></span><span class="iso-plot sl"></span>
+        <span class="iso-plot av"></span><span class="iso-plot bk"></span><span class="iso-plot iso-road"></span><span class="iso-plot av"></span><span class="iso-plot av"></span><span class="iso-plot av"></span>
+        <span class="iso-plot iso-road"></span><span class="iso-plot iso-road"></span><span class="iso-plot iso-road"></span><span class="iso-plot iso-road"></span><span class="iso-plot iso-road"></span><span class="iso-plot iso-road"></span>
+        <span class="iso-plot av"></span><span class="iso-plot av"></span><span class="iso-plot iso-road"></span><span class="iso-plot sl"></span><span class="iso-plot av"></span><span class="iso-plot hd"></span>
+        <span class="iso-plot hd"></span><span class="iso-plot av"></span><span class="iso-plot iso-road"></span><span class="iso-plot av"></span><span class="iso-plot bk"></span><span class="iso-plot av"></span>
+      </div>
+
+      <div class="stage3d-hud">
+        <div style="display:flex;gap:.5rem;flex-wrap:wrap">
+          <span class="pill pill-invert"><span class="dot" style="background:#3dbe8f"></span>Available</span>
+          <span class="pill pill-invert"><span class="dot" style="background:#e0b042"></span>On hold</span>
+          <span class="pill pill-invert"><span class="dot" style="background:#d66a62"></span>Booked</span>
+          <span class="pill pill-invert"><span class="dot" style="background:var(--clay-300)"></span>Selected A-113</span>
+        </div>
+        <div style="display:flex;gap:.6rem;flex-wrap:wrap">
+          <div class="hud-card">
+            <div class="hud-lbl">Selected plot</div>
+            <div class="hud-val">A-113 <small>216 m² · NE</small></div>
+          </div>
+          <div class="hud-card">
+            <div class="hud-lbl">All-in price</div>
+            <div class="hud-val">€197,120</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        </div>
+        <div class="col-lg-5 order-lg-2 order-1">
+          <span class="eyebrow eyebrow-invert">3D plot visualisation</span>
+          <h2 class="t-h2">A layout your buyer understands in five seconds.</h2>
+          <p class="t-body" style="margin-top:1.1rem">
+            Numbers on a price list do not sell a plot. Orientation, road frontage,
+            what is next door and how the light falls do. Presly renders your survey
+            layout as an interactive 3D view, coloured by live availability.
+          </p>
+          <ul class="ticks ticks-invert" style="margin-top:1.4rem">
+            <li>Select any plot to see dimensions, facing and all-in price in place</li>
+            <li>Corner and road-facing premiums shown as they are calculated</li>
+            <li>Identical view in the sales office and on a tablet at the site</li>
+            <li>Updates the moment a plot is held or booked</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= COMMISSION ================= -->
+  <section class="section" id="commission">
+    <div class="shell">
+      <div class="row g-5 align-items-center">
+        <div class="col-lg-5">
+          <span class="eyebrow">Commission</span>
+          <h2 class="t-h2">Commission calculated, not argued about.</h2>
+          <p class="t-body" style="margin-top:1.1rem">
+            In most companies, commission is a spreadsheet that three people maintain
+            and nobody trusts. Presly computes it from the booking itself, applies the
+            rules you configured, and keeps the arithmetic visible so anyone can check it.
+          </p>
+          <ul class="ticks" style="margin-top:1.4rem">
+            <li><strong>Rules, not formulas.</strong> Percentage, slab, flat fee, tiered bonus, launch incentive.</li>
+            <li><strong>Every party in one run.</strong> In-house agents and external channel partners, split correctly.</li>
+            <li><strong>Survives revisions.</strong> If a booking value changes, the commission is recomputed, not manually patched.</li>
+            <li><strong>Audit-ready.</strong> Every payout line traces back to a booking, a rule and a date.</li>
+          </ul>
+          <a class="btn btn-line" href="features.html#commission" style="margin-top:1.6rem">
+            Commission features in detail
+            <svg class="ico" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
+          </a>
+        </div>
+        <div class="col-lg-7">
+          <!-- ============ SHOT: Commission engine ============ -->
+<div class="shot">
+  <div class="shot-bar">
+    <span class="shot-dots"><i></i><i></i><i></i></span>
+    <span class="shot-url">app.presly.de/commission/payout-run/2025-09</span>
+    <span class="pill pill-blue" style="font-size:.66rem;padding:.14rem .5rem">Draft payout run</span>
+  </div>
+  <div class="shot-body">
+    <div style="padding:1.25rem 1.3rem">
+      <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;flex-wrap:wrap;margin-bottom:1rem">
+        <div>
+          <p class="app-crumb">September 2025 · 34 confirmed bookings</p>
+          <h3 class="app-title">Commission run — Green Meadows &amp; Riverbend</h3>
+        </div>
+        <div style="display:flex;gap:.4rem">
+          <span class="pill" style="font-size:.68rem">Rules: channel partner</span>
+          <span class="pill pill-clay" style="font-size:.68rem">Recompute</span>
+        </div>
+      </div>
+
+      <div class="grid-2-tight" style="gap:.9rem">
+        <div class="panel" style="margin:0">
+          <div class="panel-head"><h4 class="panel-title">Booking BK-2025-0417 · calculation</h4></div>
+          <div class="panel-body">
+            <div class="calc">
+              <div class="calc-row">
+                <span class="calc-k">Agreement value (A-114, 216 m²)</span>
+                <span class="calc-v">€182,400.00</span>
+              </div>
+              <div class="calc-row">
+                <span class="calc-k">Less statutory deductions</span>
+                <span class="calc-v">− €1,240.00</span>
+              </div>
+              <div class="calc-row">
+                <span class="calc-k">Commissionable base</span>
+                <span class="calc-v">€181,160.00</span>
+              </div>
+              <div class="calc-row">
+                <span class="calc-k">Agency commission @ 2.00%</span>
+                <span class="calc-v">€3,623.20</span>
+              </div>
+              <div class="calc-row">
+                <span class="calc-k">Slab bonus (booking in launch quarter)</span>
+                <span class="calc-v">+ €250.00</span>
+              </div>
+              <div class="calc-row">
+                <span class="calc-k">Agent share @ 60% · Anita K.</span>
+                <span class="calc-v">€2,323.92</span>
+              </div>
+              <div class="calc-row">
+                <span class="calc-k">Channel partner share @ 40% · Nordbank Realty</span>
+                <span class="calc-v">€1,549.28</span>
+              </div>
+              <div class="calc-total">
+                <span class="calc-k">Total payable this run</span>
+                <span class="calc-v">€3,873.20</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel" style="margin:0">
+          <div class="panel-head">
+            <h4 class="panel-title">Payouts by agent</h4>
+            <span class="t-tiny">34 bookings</span>
+          </div>
+          <div class="panel-body tight">
+            <table class="dtable">
+              <thead>
+                <tr><th>Agent</th><th class="num">Deals</th><th class="num">Value</th><th class="num">Payable</th></tr>
+              </thead>
+              <tbody>
+                <tr><td class="strong">Anita K.</td><td class="num">9</td><td class="num">€1.42M</td><td class="num strong">€18,940</td></tr>
+                <tr><td class="strong">Tobias R.</td><td class="num">7</td><td class="num">€1.08M</td><td class="num strong">€14,210</td></tr>
+                <tr><td class="strong">Priya N.</td><td class="num">6</td><td class="num">€0.94M</td><td class="num strong">€12,380</td></tr>
+                <tr><td class="strong">Nordbank Realty</td><td class="num">8</td><td class="num">€1.36M</td><td class="num strong">€11,460</td></tr>
+                <tr><td class="strong">Marek S.</td><td class="num">4</td><td class="num">€0.61M</td><td class="num strong">€7,905</td></tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <td class="strong" style="border-top:1px solid var(--line)">Total</td>
+                  <td class="num strong" style="border-top:1px solid var(--line)">34</td>
+                  <td class="num strong" style="border-top:1px solid var(--line)">€5.41M</td>
+                  <td class="num strong" style="border-top:1px solid var(--line);color:var(--clay-600)">€64,895</td>
+                </tr>
+              </tfoot>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel" style="margin:.9rem 0 0">
+        <div class="panel-body tight" style="display:flex;gap:.6rem;flex-wrap:wrap;align-items:center;padding:.7rem .85rem">
+          <span class="pill pill-green" style="font-size:.68rem"><span class="dot"></span>34 bookings matched to a rule</span>
+          <span class="pill" style="font-size:.68rem">2 awaiting agreement upload</span>
+          <span class="pill pill-amber" style="font-size:.68rem">1 disputed split</span>
+          <span class="t-tiny" style="margin-left:auto">Approve run → generates payout schedule + journal entry</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PIPELINE ================= -->
+  <section class="section bg-paper2 section-rule">
+    <div class="shell">
+      <div class="row g-5 align-items-center">
+        <div class="col-lg-7">
+          <!-- ============ SHOT: Sales pipeline (lead → booking) ============ -->
+<div class="shot">
+  <div class="shot-bar">
+    <span class="shot-dots"><i></i><i></i><i></i></span>
+    <span class="shot-url">app.presly.de/leads/pipeline</span>
+    <span class="pill" style="font-size:.66rem;padding:.14rem .5rem">142 open leads</span>
+  </div>
+  <div class="shot-body">
+    <div style="padding:1.15rem 1.3rem 1.3rem">
+      <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;flex-wrap:wrap;margin-bottom:1rem">
+        <div>
+          <p class="app-crumb">Team: Township sales · round-robin assignment on</p>
+          <h3 class="app-title">Lead pipeline</h3>
+        </div>
+        <div style="display:flex;gap:.4rem;flex-wrap:wrap">
+          <span class="pill" style="font-size:.68rem">Source: all</span>
+          <span class="pill" style="font-size:.68rem">Owner: my team</span>
+          <span class="pill pill-ink" style="font-size:.68rem">+ New lead</span>
+        </div>
+      </div>
+
+      <div class="kanban">
+        <div class="kcol">
+          <div class="kcol-head"><span class="kcol-title">Qualified</span><span class="kcol-count">18</span></div>
+          <div class="kcard">
+            <div class="kcard-name">R. Delacroix</div>
+            <div class="kcard-sub">Riverbend · 240 m² · referral</div>
+            <div class="kcard-foot"><span class="kcard-amt">€96.8K</span><span class="pill pill-blue" style="font-size:.6rem">Visit Fri</span></div>
+          </div>
+          <div class="kcard">
+            <div class="kcard-name">H. Okafor</div>
+            <div class="kcard-sub">Green Meadows · 216 m² · web</div>
+            <div class="kcard-foot"><span class="kcard-amt">€214K</span><span class="pill" style="font-size:.6rem">Called</span></div>
+          </div>
+          <div class="kcard">
+            <div class="kcard-name">L. Petrov</div>
+            <div class="kcard-sub">Green Meadows · 180 m² · agent</div>
+            <div class="kcard-foot"><span class="kcard-amt">€147.9K</span><span class="pill" style="font-size:.6rem">Docs</span></div>
+          </div>
+        </div>
+
+        <div class="kcol">
+          <div class="kcol-head"><span class="kcol-title">Site visit</span><span class="kcol-count">11</span></div>
+          <div class="kcard">
+            <div class="kcard-name">M. Sandberg</div>
+            <div class="kcard-sub">Block A · visited 14 Sep</div>
+            <div class="kcard-foot"><span class="kcard-amt">€182.4K</span><span class="pill pill-green" style="font-size:.6rem">Positive</span></div>
+          </div>
+          <div class="kcard">
+            <div class="kcard-name">S. Ferreira</div>
+            <div class="kcard-sub">Block C · visited 13 Sep</div>
+            <div class="kcard-foot"><span class="kcard-amt">€121K</span><span class="pill pill-amber" style="font-size:.6rem">Comparing</span></div>
+          </div>
+          <div class="kcard">
+            <div class="kcard-name">A. Novak</div>
+            <div class="kcard-sub">Block A · visit booked</div>
+            <div class="kcard-foot"><span class="kcard-amt">€168K</span><span class="pill" style="font-size:.6rem">Tue 10:30</span></div>
+          </div>
+        </div>
+
+        <div class="kcol">
+          <div class="kcol-head"><span class="kcol-title">Negotiation</span><span class="kcol-count">7</span></div>
+          <div class="kcard">
+            <div class="kcard-name">K. Yamamoto</div>
+            <div class="kcard-sub">A-114 · corner premium discussed</div>
+            <div class="kcard-foot"><span class="kcard-amt">€182.4K</span><span class="pill pill-amber" style="font-size:.6rem">2 revisions</span></div>
+          </div>
+          <div class="kcard">
+            <div class="kcard-name">D. Almeida</div>
+            <div class="kcard-sub">B-208 · payment plan requested</div>
+            <div class="kcard-foot"><span class="kcard-amt">€214K</span><span class="pill" style="font-size:.6rem">Plan sent</span></div>
+          </div>
+        </div>
+
+        <div class="kcol">
+          <div class="kcol-head"><span class="kcol-title">Won</span><span class="kcol-count">34</span></div>
+          <div class="kcard">
+            <div class="kcard-name">M. Sandberg</div>
+            <div class="kcard-sub">A-114 · booked 16 Sep</div>
+            <div class="kcard-foot"><span class="kcard-amt">€182.4K</span><span class="pill pill-green" style="font-size:.6rem">Booked</span></div>
+          </div>
+          <div class="kcard">
+            <div class="kcard-name">H. Okafor</div>
+            <div class="kcard-sub">B-208 · registered 11 Sep</div>
+            <div class="kcard-foot"><span class="kcard-amt">€214K</span><span class="pill pill-green" style="font-size:.6rem">Registered</span></div>
+          </div>
+          <div class="kcard">
+            <div class="kcard-name">T. Brandt</div>
+            <div class="kcard-sub">A-076 · agreement signed</div>
+            <div class="kcard-foot"><span class="kcard-amt">€147.9K</span><span class="pill pill-green" style="font-size:.6rem">Booked</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid-2-tight" style="margin-top:.9rem;gap:.9rem">
+        <div class="panel" style="margin:0">
+          <div class="panel-head"><h4 class="panel-title">Source performance this month</h4></div>
+          <div class="panel-body tight">
+            <table class="dtable">
+              <thead><tr><th>Source</th><th class="num">Leads</th><th class="num">Visits</th><th class="num">Bookings</th><th class="num">Conv.</th></tr></thead>
+              <tbody>
+                <tr><td class="strong">Channel partner</td><td class="num">96</td><td class="num">41</td><td class="num">14</td><td class="num strong">14.6%</td></tr>
+                <tr><td class="strong">Website / ads</td><td class="num">128</td><td class="num">37</td><td class="num">11</td><td class="num strong">8.6%</td></tr>
+                <tr><td class="strong">Walk-in</td><td class="num">54</td><td class="num">29</td><td class="num">7</td><td class="num strong">13.0%</td></tr>
+                <tr><td class="strong">Referral</td><td class="num">31</td><td class="num">18</td><td class="num">2</td><td class="num strong">6.5%</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="panel" style="margin:0">
+          <div class="panel-head"><h4 class="panel-title">Activity — today</h4></div>
+          <div class="panel-body">
+            <div class="feed">
+              <div class="feed-item">
+                <span class="feed-dot is-green"><svg class="ico"><use href="#i-check"></use></svg></span>
+                <div><div class="feed-txt"><b>Booking confirmed</b> — A-114, M. Sandberg</div><div class="feed-time">11:42 · Anita K.</div></div>
+              </div>
+              <div class="feed-item">
+                <span class="feed-dot is-clay"><svg class="ico"><use href="#i-pin"></use></svg></span>
+                <div><div class="feed-txt"><b>Site visit completed</b> — Block C, S. Ferreira</div><div class="feed-time">10:15 · Tobias R.</div></div>
+              </div>
+              <div class="feed-item">
+                <span class="feed-dot"><svg class="ico"><use href="#i-clock"></use></svg></span>
+                <div><div class="feed-txt"><b>Hold placed</b> — plot C-032, expires in 24h</div><div class="feed-time">09:58 · system</div></div>
+              </div>
+              <div class="feed-item">
+                <span class="feed-dot"><svg class="ico"><use href="#i-phone"></use></svg></span>
+                <div><div class="feed-txt"><b>Call logged</b> — K. Yamamoto, negotiating corner premium</div><div class="feed-time">09:20 · Priya N.</div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        </div>
+        <div class="col-lg-5">
+          <span class="eyebrow">Sales</span>
+          <h2 class="t-h2">From first enquiry to registered sale, one thread.</h2>
+          <p class="t-body" style="margin-top:1.1rem">
+            A lead arrives from an ad, a walk-in or a channel partner. It gets assigned,
+            followed up, taken to a site visit, negotiated on a specific plot and
+            converted into a booking. Presly keeps that entire thread attached to the
+            same person and the same plot.
+          </p>
+          <ul class="ticks" style="margin-top:1.4rem">
+            <li>Sensible round-robin so leads do not rot in one inbox</li>
+            <li>Site visits logged against the plots actually shown</li>
+            <li>Source-wise conversion, so you know which ads pay for themselves</li>
+            <li>Nothing lost when a salesperson leaves — the history stays</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= MODULES ================= -->
+  <section class="section">
+    <div class="shell">
+      <div class="section-head">
+        <span class="eyebrow">Under the bonnet</span>
+        <h2 class="t-h2">Twenty modules, one data model.</h2>
+        <p class="t-lead">
+          Everything below ships in the core platform. Some teams switch a module on in
+          week one; others grow into it over a year. Nothing needs a second system.
+        </p>
+      </div>
+
+      <div class="grid-4">
+        <div class="card-p reveal" style="padding:1.35rem 1.3rem">
+          <h3 class="t-h4" style="display:flex;align-items:center;gap:.55rem;margin-bottom:.35rem">
+            <svg class="ico text-clay" style="width:17px;height:17px" aria-hidden="true"><use href="#i-user-plus"></use></svg>Leads
+          </h3>
+          <p style="font-size:.875rem">Capture, dedupe, assign, stage and convert.</p>
+        </div>
+        <div class="card-p reveal" style="padding:1.35rem 1.3rem">
+          <h3 class="t-h4" style="display:flex;align-items:center;gap:.55rem;margin-bottom:.35rem">
+            <svg class="ico text-clay" style="width:17px;height:17px" aria-hidden="true"><use href="#i-users"></use></svg>Customers
+          </h3>
+          <p style="font-size:.875rem">KYC records, co-applicants, communications.</p>
+        </div>
+        <div class="card-p reveal" style="padding:1.35rem 1.3rem">
+          <h3 class="t-h4" style="display:flex;align-items:center;gap:.55rem;margin-bottom:.35rem">
+            <svg class="ico text-clay" style="width:17px;height:17px" aria-hidden="true"><use href="#i-calendar"></use></svg>Activities &amp; follow-ups
+          </h3>
+          <p style="font-size:.875rem">Calls, notes, meetings, reminders, outcomes.</p>
+        </div>
+        <div class="card-p reveal" style="padding:1.35rem 1.3rem">
+          <h3 class="t-h4" style="display:flex;align-items:center;gap:.55rem;margin-bottom:.35rem">
+            <svg class="ico text-clay" style="width:17px;height:17px" aria-hidden="true"><use href="#i-route"></use></svg>Site visits
+          </h3>
+          <p style="font-size:.875rem">Scheduled visits, plots shown, feedback.</p>
+        </div>
+        <div class="card-p reveal" style="padding:1.35rem 1.3rem">
+          <h3 class="t-h4" style="display:flex;align-items:center;gap:.55rem;margin-bottom:.35rem">
+            <svg class="ico text-clay" style="width:17px;height:17px" aria-hidden="true"><use href="#i-target"></use></svg>Opportunities
+          </h3>
+          <p style="font-size:.875rem">Commercial intent per plot or unit.</p>
+        </div>
+        <div class="card-p reveal" style="padding:1.35rem 1.3rem">
+          <h3 class="t-h4" style="display:flex;align-items:center;gap:.55rem;margin-bottom:.35rem">
+            <svg class="ico text-clay" style="width:17px;height:17px" aria-hidden="true"><use href="#i-handshake"></use></svg>Agents &amp; partners
+          </h3>
+          <p style="font-size:.875rem">In-house agents and external agencies.</p>
+        </div>
+        <div class="card-p reveal" style="padding:1.35rem 1.3rem">
+          <h3 class="t-h4" style="display:flex;align-items:center;gap:.55rem;margin-bottom:.35rem">
+            <svg class="ico text-clay" style="width:17px;height:17px" aria-hidden="true"><use href="#i-layers"></use></svg>Projects &amp; hierarchy
+          </h3>
+          <p style="font-size:.875rem">Ventures, phases, blocks, approvals.</p>
+        </div>
+        <div class="card-p reveal" style="padding:1.35rem 1.3rem">
+          <h3 class="t-h4" style="display:flex;align-items:center;gap:.55rem;margin-bottom:.35rem">
+            <svg class="ico text-clay" style="width:17px;height:17px" aria-hidden="true"><use href="#i-map"></use></svg>Inventory
+          </h3>
+          <p style="font-size:.875rem">Plots, rates, premiums, availability.</p>
+        </div>
+        <div class="card-p reveal" style="padding:1.35rem 1.3rem">
+          <h3 class="t-h4" style="display:flex;align-items:center;gap:.55rem;margin-bottom:.35rem">
+            <svg class="ico text-clay" style="width:17px;height:17px" aria-hidden="true"><use href="#i-clock"></use></svg>Holds
+          </h3>
+          <p style="font-size:.875rem">Time-boxed reservations with expiry.</p>
+        </div>
+        <div class="card-p reveal" style="padding:1.35rem 1.3rem">
+          <h3 class="t-h4" style="display:flex;align-items:center;gap:.55rem;margin-bottom:.35rem">
+            <svg class="ico text-clay" style="width:17px;height:17px" aria-hidden="true"><use href="#i-receipt"></use></svg>Bookings
+          </h3>
+          <p style="font-size:.875rem">Booking, agreement, registration, cancellation.</p>
+        </div>
+        <div class="card-p reveal" style="padding:1.35rem 1.3rem">
+          <h3 class="t-h4" style="display:flex;align-items:center;gap:.55rem;margin-bottom:.35rem">
+            <svg class="ico text-clay" style="width:17px;height:17px" aria-hidden="true"><use href="#i-wallet"></use></svg>Payments
+          </h3>
+          <p style="font-size:.875rem">Schedules, receipts, dues, part-payments.</p>
+        </div>
+        <div class="card-p reveal" style="padding:1.35rem 1.3rem">
+          <h3 class="t-h4" style="display:flex;align-items:center;gap:.55rem;margin-bottom:.35rem">
+            <svg class="ico text-clay" style="width:17px;height:17px" aria-hidden="true"><use href="#i-calc"></use></svg>Commission
+          </h3>
+          <p style="font-size:.875rem">Rules, runs, splits, payout statements.</p>
+        </div>
+        <div class="card-p reveal" style="padding:1.35rem 1.3rem">
+          <h3 class="t-h4" style="display:flex;align-items:center;gap:.55rem;margin-bottom:.35rem">
+            <svg class="ico text-clay" style="width:17px;height:17px" aria-hidden="true"><use href="#i-file"></use></svg>Documents
+          </h3>
+          <p style="font-size:.875rem">Agreements, KYC, receipts, templates.</p>
+        </div>
+        <div class="card-p reveal" style="padding:1.35rem 1.3rem">
+          <h3 class="t-h4" style="display:flex;align-items:center;gap:.55rem;margin-bottom:.35rem">
+            <svg class="ico text-clay" style="width:17px;height:17px" aria-hidden="true"><use href="#i-chart"></use></svg>Reports
+          </h3>
+          <p style="font-size:.875rem">Sales, inventory, aging, collections.</p>
+        </div>
+        <div class="card-p reveal" style="padding:1.35rem 1.3rem">
+          <h3 class="t-h4" style="display:flex;align-items:center;gap:.55rem;margin-bottom:.35rem">
+            <svg class="ico text-clay" style="width:17px;height:17px" aria-hidden="true"><use href="#i-users"></use></svg>Teams &amp; hierarchy
+          </h3>
+          <p style="font-size:.875rem">Reporting lines and approval limits.</p>
+        </div>
+        <div class="card-p reveal" style="padding:1.35rem 1.3rem">
+          <h3 class="t-h4" style="display:flex;align-items:center;gap:.55rem;margin-bottom:.35rem">
+            <svg class="ico text-clay" style="width:17px;height:17px" aria-hidden="true"><use href="#i-shield"></use></svg>Roles &amp; permissions
+          </h3>
+          <p style="font-size:.875rem">Granular access, tenant isolation.</p>
+        </div>
+        <div class="card-p reveal" style="padding:1.35rem 1.3rem">
+          <h3 class="t-h4" style="display:flex;align-items:center;gap:.55rem;margin-bottom:.35rem">
+            <svg class="ico text-clay" style="width:17px;height:17px" aria-hidden="true"><use href="#i-bell"></use></svg>Notifications
+          </h3>
+          <p style="font-size:.875rem">Email, in-app, expiry and due alerts.</p>
+        </div>
+        <div class="card-p reveal" style="padding:1.35rem 1.3rem">
+          <h3 class="t-h4" style="display:flex;align-items:center;gap:.55rem;margin-bottom:.35rem">
+            <svg class="ico text-clay" style="width:17px;height:17px" aria-hidden="true"><use href="#i-search"></use></svg>Audit trail
+          </h3>
+          <p style="font-size:.875rem">Who changed what, when, and to what value.</p>
+        </div>
+        <div class="card-p reveal" style="padding:1.35rem 1.3rem">
+          <h3 class="t-h4" style="display:flex;align-items:center;gap:.55rem;margin-bottom:.35rem">
+            <svg class="ico text-clay" style="width:17px;height:17px" aria-hidden="true"><use href="#i-plug"></use></svg>Integrations
+          </h3>
+          <p style="font-size:.875rem">API, webhooks, accounting, messaging.</p>
+        </div>
+        <div class="card-p reveal" style="padding:1.35rem 1.3rem">
+          <h3 class="t-h4" style="display:flex;align-items:center;gap:.55rem;margin-bottom:.35rem">
+            <svg class="ico text-clay" style="width:17px;height:17px" aria-hidden="true"><use href="#i-download"></use></svg>Imports &amp; exports
+          </h3>
+          <p style="font-size:.875rem">Onboarding from your existing spreadsheets.</p>
+        </div>
+        <div class="card-p reveal" style="padding:1.35rem 1.3rem">
+          <h3 class="t-h4" style="display:flex;align-items:center;gap:.55rem;margin-bottom:.35rem">
+            <svg class="ico text-clay" style="width:17px;height:17px" aria-hidden="true"><use href="#i-globe"></use></svg>Multi-company
+          </h3>
+          <p style="font-size:.875rem">Several legal entities, one platform.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SECURITY ================= -->
+  <section class="section bg-paper2 section-rule">
+    <div class="shell">
+      <div class="row g-5">
+        <div class="col-lg-5">
+          <span class="eyebrow">Trust &amp; deployment</span>
+          <h2 class="t-h2">Your data, your rules on where it lives.</h2>
+          <p class="t-body" style="margin-top:1.1rem">
+            Real-estate companies hold customer identity documents, pricing and contract
+            terms. We treat that as something to be careful with, not as marketing copy.
+          </p>
+        </div>
+        <div class="col-lg-7">
+          <div class="grid-2">
+            <div class="card-p">
+              <span class="card-ico is-green"><svg class="ico" aria-hidden="true"><use href="#i-shield"></use></svg></span>
+              <h3 class="t-h4">Complete data separation</h3>
+              <p>Every record is scoped to your company at the database level, not just filtered in the interface. One customer's data can never appear in another's reports.</p>
+            </div>
+            <div class="card-p">
+              <span class="card-ico is-green"><svg class="ico" aria-hidden="true"><use href="#i-lock"></use></svg></span>
+              <h3 class="t-h4">Granular permissions</h3>
+              <p>Decide who can see a rate list, who can approve a discount, who can cancel a booking and who can release a payout run.</p>
+            </div>
+            <div class="card-p">
+              <span class="card-ico is-green"><svg class="ico" aria-hidden="true"><use href="#i-server"></use></svg></span>
+              <h3 class="t-h4">Cloud or your own servers</h3>
+              <p>Run Presly Estate as a managed cloud service, or deploy it inside your own infrastructure if your policies require it.</p>
+            </div>
+            <div class="card-p">
+              <span class="card-ico is-green"><svg class="ico" aria-hidden="true"><use href="#i-refresh"></use></svg></span>
+              <h3 class="t-h4">Backups and continuity</h3>
+              <p>Scheduled backups, point-in-time recovery and a documented restore procedure — tested, not assumed.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PROOF ================= -->
+  <section class="section">
+    <div class="shell">
+      <div class="row g-5 align-items:center">
+        <div class="col-lg-4">
+          <span class="eyebrow">From our customers</span>
+          <h2 class="t-h2">What changes in the first quarter.</h2>
+          <p class="t-body" style="margin-top:1.1rem">
+            We are a young company and we would rather show you the product than a wall
+            of logos. These are the changes teams report after moving off spreadsheets.
+          </p>
+        </div>
+        <div class="col-lg-8">
+          <div class="grid-2">
+            <div class="card-p">
+              <svg class="ico text-clay" style="width:26px;height:26px;margin-bottom:.85rem" aria-hidden="true"><use href="#i-quote"></use></svg>
+              <p class="t-body" style="font-size:1rem;color:var(--ink-800)">
+                “The plot matrix ended the daily argument about what was still
+                available. One screen, and the sales floor stopped guessing.”
+              </p>
+              <div class="t-small" style="margin-top:1rem">Sales head, plotted development · 240-plot township</div>
+            </div>
+            <div class="card-p">
+              <svg class="ico text-clay" style="width:26px;height:26px;margin-bottom:.85rem" aria-hidden="true"><use href="#i-quote"></use></svg>
+              <p class="t-body" style="font-size:1rem;color:var(--ink-800)">
+                “Commission used to take our finance team four days and still ended in
+                disputes. The payout run now takes an afternoon.”
+              </p>
+              <div class="t-small" style="margin-top:1rem">Finance controller, mixed residential portfolio</div>
+            </div>
+            <div class="card-p">
+              <svg class="ico text-clay" style="width:26px;height:26px;margin-bottom:.85rem" aria-hidden="true"><use href="#i-quote"></use></svg>
+              <p class="t-body" style="font-size:1rem;color:var(--ink-800)">
+                “Showing the 3D layout on a tablet closed deals on the spot. Buyers
+                stopped asking which plot is where.”
+              </p>
+              <div class="t-small" style="margin-top:1rem">Channel partner, brokerage with 40 agents</div>
+            </div>
+            <div class="card-p">
+              <svg class="ico text-clay" style="width:26px;height:26px;margin-bottom:.85rem" aria-hidden="true"><use href="#i-quote"></use></svg>
+              <p class="t-body" style="font-size:1rem;color:var(--ink-800)">
+                “Onboarding took a fortnight because they imported our old sheets
+                themselves. Nobody had to re-type two years of inventory.”
+              </p>
+              <div class="t-small" style="margin-top:1rem">Managing director, regional developer</div>
+            </div>
+          </div>
+          <p class="t-tiny" style="margin-top:1.2rem">
+            Statements are illustrative of typical feedback. Ask us for reference
+            contacts relevant to your segment during the demo.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PRICING TEASER ================= -->
+  <section class="section bg-paper2 section-rule" id="pricing">
+    <div class="shell">
+      <div class="section-head center">
+        <span class="eyebrow">Packages</span>
+        <h2 class="t-h2">Priced per company, not per seat you forgot to count.</h2>
+        <p class="t-lead">
+          Every deployment is scoped — number of projects, plots, users and modules.
+          Tell us your shape and we will send a written quote the same week.
+        </p>
+      </div>
+
+      <div class="grid-3">
+        <div class="card-p reveal">
+          <span class="pill pill-clay" style="margin-bottom:1rem">Starter</span>
+          <h3 class="t-h3" style="font-size:1.35rem">For a single project or venture</h3>
+          <p style="margin-top:.8rem">A first project, a small sales team, and a clean start on real inventory instead of spreadsheets.</p>
+          <ul class="ticks">
+            <li>Inventory, plot matrix and holds</li>
+            <li>Leads, customers and follow-ups</li>
+            <li>Bookings and payment schedules</li>
+            <li>Standard reports and exports</li>
+          </ul>
+        </div>
+        <div class="card-p reveal" style="border-color:var(--ink-800);box-shadow:var(--sh-md)">
+          <span class="pill pill-ink" style="margin-bottom:1rem">Growth · most common</span>
+          <h3 class="t-h3" style="font-size:1.35rem">For multi-venture developers</h3>
+          <p style="margin-top:.8rem">Several ventures running at once, channel partners, and a finance team that needs commission to be exact.</p>
+          <ul class="ticks">
+            <li>Everything in Starter</li>
+            <li>Commission engine and payout runs</li>
+            <li>3D plot visualisation</li>
+            <li>Team hierarchy and approvals</li>
+          </ul>
+        </div>
+        <div class="card-p reveal">
+          <span class="pill" style="margin-bottom:1rem">Enterprise</span>
+          <h3 class="t-h3" style="font-size:1.35rem">For groups and multi-entity firms</h3>
+          <p style="margin-top:.8rem">Multiple legal entities, large inventories, custom processes and integration into your existing stack.</p>
+          <ul class="ticks">
+            <li>Everything in Growth</li>
+            <li>Multi-company and consolidated reporting</li>
+            <li>Custom modules and integrations</li>
+            <li>On-premise or private-cloud deployment</li>
+          </ul>
+        </div>
+      </div>
+
+      <div style="text-align:center;margin-top:2.5rem">
+        <a class="btn btn-ink btn-lg" href="contact.html#quote">
+          Request pricing
+          <svg class="ico" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
+        </a>
+        <p class="t-small" style="margin-top:.9rem">
+          Or see the full comparison on the <a href="pricing.html" style="color:var(--clay-600)">pricing page</a>.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FAQ ================= -->
+  <section class="section">
+    <div class="shell">
+      <div class="row g-5">
+        <div class="col-lg-4">
+          <span class="eyebrow">Questions</span>
+          <h2 class="t-h2">Before you talk to us.</h2>
+          <p class="t-body" style="margin-top:1.1rem">
+            Still unsure? Write to
+            <a href="mailto:contact@presly.de" style="color:var(--clay-600)">contact@presly.de</a>
+            and you will get an answer from someone who works on the product.
+          </p>
+        </div>
+        <div class="col-lg-8">
+          <div class="faq">
+            <div class="faq-item">
+              <button class="faq-q" type="button" aria-expanded="true" aria-controls="faq1">How long does implementation take?</button>
+              <div class="faq-a" id="faq1"><div class="faq-a-inner">
+                <p>Most single-project deployments are live in two to three weeks, including data import. Multi-venture setups with commission rules and hierarchy typically take four to eight weeks. We do the import work with you rather than handing you a template.</p>
+              </div></div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq2">Can you import our existing inventory spreadsheet?</button>
+              <div class="faq-a" id="faq2"><div class="faq-a-inner">
+                <p>Yes. Send us the file you actually use — however messy — and we will map it into the project, venture, block and plot structure during onboarding. Price history, current bookings and outstanding dues can all come across.</p>
+              </div></div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq3">Does it work on a phone or tablet at a project site?</button>
+              <div class="faq-a" id="faq3"><div class="faq-a-inner">
+                <p>The interface is responsive and built to be used on a tablet in a site office, including the 3D plot view. Site visits, lead capture and plot selection all work comfortably on a touch screen.</p>
+              </div></div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq4">Can we calculate commission the way we already do it?</button>
+              <div class="faq-a" id="faq4"><div class="faq-a-inner">
+                <p>Usually, yes. We support percentage and slab-based commission, flat fees per booking, tiered incentives, and different splits for in-house agents versus channel partners. If your scheme is genuinely unusual, we will tell you honestly during the scoping call what fits and what needs configuration work.</p>
+              </div></div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq5">What happens to our data if we stop using Presly?</button>
+              <div class="faq-a" id="faq5"><div class="faq-a-inner">
+                <p>You can export your data at any time — plots, customers, bookings, payments and commission runs — as structured files. There is no lock-in mechanism in the product. If you leave, you leave with everything.</p>
+              </div></div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq6">Do you only build real-estate software?</button>
+              <div class="faq-a" id="faq6"><div class="faq-a-inner">
+                <p>Real estate is our current product and our focus. Presly is a software company, and the platform underneath — inventory, sales pipeline, approvals, commission and reporting — applies to other industries with similar operational shapes. We would rather say we are exploring that than promise a date.</p>
+              </div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CTA BAND ===================== -->
+<section class="section-tight">
+  <div class="shell">
+    <div class="cta-band reveal">
+      <div class="row align-items-center g-4">
+        <div class="col-lg-7">
+          <span class="eyebrow eyebrow-invert">Next step</span>
+          <h2 class="t-h2" style="max-width:17ch">See Presly Estate running on your own projects.</h2>
+          <p class="t-lead max-52" style="color:rgba(255,255,255,.66)">
+            Tell us how your plots, ventures and sales teams are structured today. We will
+            walk you through the same setup in the software — no slideware.
+          </p>
+        </div>
+        <div class="col-lg-5">
+          <div class="cta-actions justify-content-lg-end">
+            <a class="btn btn-invert btn-lg" href="contact.html#demo">Book a demo</a>
+            <a class="btn btn-outline-invert btn-lg" href="pricing.html">See packages</a>
+          </div>
+          <p class="t-tiny" style="margin:1.1rem 0 0;color:rgba(255,255,255,.42)">
+            Or write to us directly at
+            <a href="mailto:contact@presly.de" style="color:rgba(255,255,255,.75)">contact@presly.de</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="site-footer">
+  <div class="shell">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="index.html">
+          <span class="brand-mark"><svg viewBox="0 0 24 24" aria-hidden="true" style="color:#fff"><use href="#i-mark"></use></svg></span>
+          <span class="brand-text">
+            <span class="brand-name">Presly</span>
+            <span class="brand-sub">Estate Software</span>
+          </span>
+        </a>
+        <p class="footer-about">
+          Presly builds operational software for real-estate developers, builders and
+          brokerages. Presly Estate runs the day-to-day ERP: inventory, sales, bookings
+          and commission.
+        </p>
+      </div>
+
+      <div>
+        <h4>Product</h4>
+        <ul class="footer-links">
+          <li><a href="product.html">Presly Estate overview</a></li>
+          <li><a href="features.html#inventory">Plot &amp; inventory management</a></li>
+          <li><a href="features.html#commission">Commission engine</a></li>
+          <li><a href="features.html#visualisation">3D plot visualisation</a></li>
+          <li><a href="features.html#crm">Sales CRM</a></li>
+          <li><a href="features.html#integrations">Integrations</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Company</h4>
+        <ul class="footer-links">
+          <li><a href="about.html">About Presly</a></li>
+          <li><a href="pricing.html">Pricing &amp; packages</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="contact.html#demo">Book a demo</a></li>
+          <li><a href="contact.html#support">Support</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Get in touch</h4>
+        <ul class="footer-links">
+          <li><a href="mailto:contact@presly.de">contact@presly.de</a></li>
+          <li><a href="tel:+490000000000">+49 (0) 000 000000</a></li>
+          <li><span style="color:rgba(255,255,255,.4)">Mon–Fri, 09:00–18:00 CET</span></li>
+        </ul>
+        <div style="margin-top:1.4rem">
+          <div class="lang-switch" role="group" aria-label="Language">
+            <span class="is-on">EN</span>
+            <a href="index.html" hreflang="de" title="German version coming soon">DE</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© <span id="year">2025</span> Presly. All rights reserved.</span>
+      <nav class="footer-legal-links" aria-label="Legal">
+        <a href="impressum.html">Impressum</a>
+        <a href="datenschutz.html">Datenschutz</a>
+        <a href="impressum.html#terms">Terms</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/vendor/bootstrap/bootstrap.bundle.min.js" defer></script>
+<script src="assets/js/main.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor dirs
+.vscode/
+.idea/
+
+# Logs
+*.log
+npm-debug.log*
+
+# Local env / scratch
+.env
+.env.local
+*.local

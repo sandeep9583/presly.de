@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0d2338"/><stop offset="1" stop-color="#08192a"/>
+    </linearGradient>
+    <pattern id="grid" width="54" height="54" patternUnits="userSpaceOnUse">
+      <path d="M54 0H0v54" fill="none" stroke="#ffffff" stroke-opacity=".05" stroke-width="1"/>
+    </pattern>
+    <radialGradient id="glow" cx=".82" cy=".1" r=".7">
+      <stop offset="0" stop-color="#c06a3c" stop-opacity=".28"/><stop offset="1" stop-color="#c06a3c" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#g)"/>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+  <rect width="1200" height="630" fill="url(#glow)"/>
+  <g transform="translate(96 150)">
+    <rect width="52" height="52" rx="11" fill="#ffffff" fill-opacity=".1"/>
+    <path d="M16 40V12h15c6 0 10.4 4.2 10.4 9.9S37 31.8 31 31.8h-5.6" fill="none" stroke="#fff" stroke-width="4.2" stroke-linecap="square"/>
+    <path d="M38 40 45.4 29.4" fill="none" stroke="#c06a3c" stroke-width="4.2" stroke-linecap="square"/>
+    <text x="72" y="38" font-family="Georgia, serif" font-size="34" font-weight="700" fill="#ffffff">Presly</text>
+  </g>
+  <text x="96" y="360" font-family="Georgia, serif" font-size="72" font-weight="700" fill="#ffffff">Real-estate ERP software</text>
+  <text x="96" y="440" font-family="Georgia, serif" font-size="72" font-weight="700" fill="#c06a3c">for plots, bookings and commission.</text>
+  <text x="96" y="530" font-family="Helvetica, Arial, sans-serif" font-size="27" fill="#ffffff" fill-opacity=".62">Presly Estate — inventory · sales CRM · 3D plot views · commission engine</text>
+</svg>
